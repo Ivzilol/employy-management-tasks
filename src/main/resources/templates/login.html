@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head th:replace="fragments/navbar::head">
     <meta charset="UTF-8">
     <title>employee-management</title>
     <link rel="stylesheet" href="/css/style.css">
-</head>
+</head >
 <body>
-    <nav class="navbar">
+    <header th:replace="fragments/navbar::#navbar-section"></header>
+    <main>
+        <h1 class="title"><span class="title-login">Login</span></h1>
+        <form class="login-rows" action="/users/login" method="post" th:object="${loginDTO}">
 
+        </form>
 
-    </nav>
+    </main>
+
 </body>
 </html>
