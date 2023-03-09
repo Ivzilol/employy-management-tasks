@@ -6,8 +6,10 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class RegisterDTO {
 
@@ -39,6 +41,10 @@ public class RegisterDTO {
     @Email
     @NotBlank
     private String email;
+
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date birthDate;
 
     public RegisterDTO() {
     }
@@ -105,5 +111,13 @@ public class RegisterDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 }

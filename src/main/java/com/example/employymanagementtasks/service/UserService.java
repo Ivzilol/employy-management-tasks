@@ -1,5 +1,6 @@
 package com.example.employymanagementtasks.service;
 
+import com.example.employymanagementtasks.model.dto.RegisterDTO;
 import com.example.employymanagementtasks.model.dto.UserDTO;
 import com.example.employymanagementtasks.model.entity.Employees;
 import com.example.employymanagementtasks.repository.EmployeeRepository;
@@ -59,5 +60,22 @@ public class    UserService {
             return null;
         }
         return this.mapUserDTO(user);
+    }
+
+    public void register(RegisterDTO registerDTO) {
+        this.employeeRepository.save(this.mapUser(registerDTO));
+        this.login(registerDTO.getUsername());
+    }
+
+    private Employees mapUser(RegisterDTO registerDTO) {
+        Employees user = new Employees();
+        user.setUsername(registerDTO.getUsername());
+        user.setEmail(registerDTO.getEmail());
+        user.setPassword(encoder.encode(registerDTO.getPassword()));
+        user.setSalary(registerDTO.getSalary());
+        user.setFullName(registerDTO.getFullName());
+        user.setBirthDate(registerDTO.getBirthDate());
+
+        return user;
     }
 }
