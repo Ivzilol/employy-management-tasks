@@ -16,6 +16,9 @@ public class Employees extends BaseEntity{
     @Column(nullable = false, name = "full_name")
     private String fullName;
 
+    @Column(nullable = false)
+    private String password;
+
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -91,5 +94,13 @@ public class Employees extends BaseEntity{
 
     public void setTasks(Set<Tasks> tasks) {
         this.tasks = tasks;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
