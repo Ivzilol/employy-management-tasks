@@ -15,11 +15,15 @@ public class Tasks extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "start_date")
     private Date startDate;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "end_date")
     private Date endDate;
+
+    @Column(nullable = false, unique = true)
+    @Enumerated(EnumType.STRING)
+    private TaskPriority taskPriority;
 
     @ManyToMany(mappedBy = "tasks")
     private Set<Employees> employees;
@@ -65,5 +69,13 @@ public class Tasks extends BaseEntity {
 
     public void setEmployees(Set<Employees> employees) {
         this.employees = employees;
+    }
+
+    public TaskPriority getTaskPriority() {
+        return taskPriority;
+    }
+
+    public void setTaskPriority(TaskPriority taskPriority) {
+        this.taskPriority = taskPriority;
     }
 }
