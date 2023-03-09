@@ -1,6 +1,7 @@
 package com.example.employymanagementtasks.controller;
 
 import com.example.employymanagementtasks.model.dto.LoginDTO;
+import com.example.employymanagementtasks.model.dto.RegisterDTO;
 import com.example.employymanagementtasks.service.UserService;
 import com.example.employymanagementtasks.util.LoggedUser;
 import org.springframework.stereotype.Controller;
@@ -47,6 +48,19 @@ public class EmployeeControllerImpl implements EmployeeController {
         }
         this.userService.login(loginDTO.getUsername());
         return "redirect:/home";
+    }
+
+    @Override
+    public String register() {
+        if (loggedUser.isLogged()) {
+            return "redirect:/home";
+        }
+        return "register";
+    }
+
+    @Override
+    public String registerConfirm(RegisterDTO registerDTO, BindingResult result, RedirectAttributes redirectAttributes) {
+        return null;
     }
 
     @ModelAttribute

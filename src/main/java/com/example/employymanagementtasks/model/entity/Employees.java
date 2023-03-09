@@ -1,6 +1,7 @@
 package com.example.employymanagementtasks.model.entity;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -26,6 +27,7 @@ public class Employees extends BaseEntity{
     private int phoneNumber;
 
     @Column(nullable = false, name = "birth_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
     @Column(nullable = false)

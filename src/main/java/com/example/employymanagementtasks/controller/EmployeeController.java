@@ -1,6 +1,7 @@
 package com.example.employymanagementtasks.controller;
 
 import com.example.employymanagementtasks.model.dto.LoginDTO;
+import com.example.employymanagementtasks.model.dto.RegisterDTO;
 import jakarta.validation.Valid;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,5 +19,9 @@ public interface EmployeeController {
     @PostMapping("/login")
     String loginConfirm(@Valid LoginDTO loginDTO, BindingResult result, RedirectAttributes redirectAttributes);
 
+    @GetMapping("/register")
+    String register();
 
+    @PostMapping("/register")
+    String registerConfirm(@Valid RegisterDTO registerDTO, BindingResult result, RedirectAttributes redirectAttributes);
 }

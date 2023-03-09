@@ -7,10 +7,10 @@ public class LoginDTO {
 
     private Long id;
 
-    @Size(min = 3, max = 20)
+    @Size(min = 3, max = 20, message = "Username must be min 3 and max 20 symbols")
     @NotNull
     private String username;
-    @Size(min = 3, max = 20)
+    @Size(min = 3, max = 20, message = "Password must be min 3 and max 20 symbols")
     @NotNull
     private String password;
 

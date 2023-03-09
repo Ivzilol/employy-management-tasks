@@ -13,8 +13,15 @@
 <main>
     <h1 class="title"><span class="title-login">Login</span></h1>
     <hr class="title-underline"/>
-    <form class="login-rows" action="/users/login" method="post" th:object="${loginDTO}">
-        <div th:each="error: ${#fields.errors()}" th:text="${error}" class="login-error">Error Message</div>
+    <form
+            class="login-rows"
+            action="/users/login"
+            method="post"
+            th:object="${loginDTO}">
+        <div
+                th:each="error : ${#fields.errors()}"
+                th:text="${error}"
+                class="text-danger">Error Message</div>
         <div th:if="${validateCredential == false}" class="login-error">Incorrect username or password!</div>
 
         <div class="form-login">
