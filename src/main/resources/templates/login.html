@@ -1,19 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
     <title>employee-management</title>
     <link rel="stylesheet" href="/css/style.css">
-</head >
+</head>
 <body>
+<header th:replace="fragments/navbar::#navbar-section"></header>
+<main>
+    <h1 class="title"><span class="title-login">Login</span></h1>
+    <hr class="title-underline"/>
+    <form class="login-rows" action="/users/login" method="post" th:object="${loginDTO}">
+        <div th:each="error: ${#fields.errors()}" th:text="${error}" class="login-error">Error Message</div>
+        <div th:if="${validateCredential == false}" class="login-error">Incorrect username or password!</div>
 
-    <main>
-        <h1 class="title"><span class="title-login">Login</span></h1>
-        <form class="login-rows" action="/users/login" method="post" >
+        <div class="form-login">
+            <div class="form-login-label">
+                <label class="form-login-label-username" id="username">Username</label>
+            </div>
+            <label for="username-input"></label><input
+                    th:field="*{username}"
+                    th:errorclass="alter-danger"
+                    type="text"
+                    class="form-input-control"
+                    id="username-input"
+                    name="username-input"
+            />
+        </div>
+        <div class="form-login">
+            <div class="form-login-label">
+                <label class="form-login-label-username" id="password">Password</label>
+            </div>
+            <label for="password-input"></label><input
+                    th:field="*{password}"
+                    th:errorclass="alter-danger"
+                    type="text"
+                    class="form-input-control"
+                    id="password-input"
+                    name="password-input"
+            />
+        </div>
+        <div class="button">
+            <button class="button-push" type="submit">Login</button>
+        </div>
+    </form>
 
-        </form>
-
-    </main>
+</main>
 
 </body>
 </html>

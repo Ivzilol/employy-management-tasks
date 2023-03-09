@@ -1,11 +1,17 @@
 package com.example.employymanagementtasks.model.dto;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class LoginDTO {
 
     private Long id;
 
+    @Size(min = 3, max = 20)
+    @NotNull
     private String username;
-
+    @Size(min = 3, max = 20)
+    @NotNull
     private String password;
 
     public LoginDTO() {

@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
     <title>employee-management</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-    <nav class="navbar">
-      <a class="nav-link" href="/">Employee Management</a>
-      <section class="navbar-section" id="navbar-section">
+<nav class="navbar">
+    <section class="navbar-section" id="navbar-section">
+        <a class="nav-link" href="/">Employee Management</a>
         <ul class="navbar-section-row">
-          <li th:if="${!@loggedUser.isLogged()}" class="navbar-section-row-item">
-              <a class="navbar-section-row-item-link" href="/users/login">Login</a>
-          </li>
-          <li th:if="${!@loggedUser.isLogged()}" class="navbar-section-row-item">
-            <a class="navbar-section-row-item-link" href="/users/register" >Register</a>
-          </li>
-          <li th:if="${@loggedUser.isLogged()}" class="navbar-section-row-item">
-            <a class="navbar-section-row-item-link" href="/users/logout" >Logout</a>
-          </li>
+            <li th:if="${!@loggedUser.isLogged()}" class="navbar-section-row-item">
+                <a class="navbar-section-row-item-link" href="/users/login">Login</a>
+            </li>
+            <li th:if="${!@loggedUser.isLogged()}" class="navbar-section-row-item">
+                <a class="navbar-section-row-item-link" href="/users/register">Register</a>
+            </li>
+            <li th:if="${@loggedUser.isLogged()}" class="navbar-section-row-item">
+                <a class="navbar-section-row-item-link" href="/users/logout">Logout</a>
+            </li>
         </ul>
-      </section>
-    </nav>
+    </section>
+</nav>
 </body>
 </html>
