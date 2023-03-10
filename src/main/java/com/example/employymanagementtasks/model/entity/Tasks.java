@@ -25,6 +25,10 @@ public class Tasks extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private TaskPriority taskPriority;
 
+    @Column(nullable = false, unique = true)
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     @ManyToMany(mappedBy = "tasks")
     private Set<Employees> employees;
 
@@ -77,5 +81,13 @@ public class Tasks extends BaseEntity {
 
     public void setTaskPriority(TaskPriority taskPriority) {
         this.taskPriority = taskPriority;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
