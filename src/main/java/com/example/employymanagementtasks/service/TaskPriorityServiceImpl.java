@@ -12,33 +12,37 @@ import java.util.Arrays;
 @Service
 public class TaskPriorityServiceImpl implements TaskPriorityService {
 
-    private final TaskRepository taskRepository;
+
 
     private final TypeOfTasksRepository typeOfTasksRepository;
 
     public TaskPriorityServiceImpl(TaskRepository taskRepository, TypeOfTasksRepository typeOfTasksRepository) {
-        this.taskRepository = taskRepository;
         this.typeOfTasksRepository = typeOfTasksRepository;
     }
 
     @Override
     public void initTask() {
-        if (this.taskRepository.count() == 0) {
-            System.out.println("init");
+        if (this.typeOfTasksRepository.count() != 0) {
             return;
         }
-        Arrays.stream(com.example.employymanagementtasks.model.entity.TaskPriority.values())
-                .forEach(task -> {
-                    Tasks tasks = new Tasks();
-                    tasks.setDescription("...");
-                    this.taskRepository.save(tasks);
+        Arrays.stream(TaskPriority.values())
+                .forEach(_taskPriority -> {
+                    TypesOfTasks typesOfTasks = new TypesOfTasks();
+                    typesOfTasks.setTaskPriority(_taskPriority);
+                    typesOfTasks.setDescription("...");
+                    this.typeOfTasksRepository.save(typesOfTasks);
                 });
 
     }
 
     @Override
+    public TypesOfTasks findTypeOfTask(TaskPriority taskPriority) {
+        return this.typeOfTasksRepository.findTypesOfTasksByTaskPriority(taskPriority).orElseThrow();
+    }
+
+    @Override
     public TypesOfTasks findTaskByTaskName(TaskPriority taskPriority) {
-        return this.typeOfTasksRepository.findByTaskPriority(taskPriority).orElseThrow();
+        return this.typeOfTasksRepository.findTypesOfTasksByTaskPriority(taskPriority).orElseThrow();
     }
 
 

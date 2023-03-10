@@ -16,8 +16,11 @@ public class TaskService {
 
     private final TaskRepository taskRepository;
 
-    public TaskService(TaskRepository taskRepository) {
+    private final TaskPriorityService taskPriorityService;
+
+    public TaskService(TaskRepository taskRepository, TaskPriorityService taskPriorityService) {
         this.taskRepository = taskRepository;
+        this.taskPriorityService = taskPriorityService;
     }
 
     public void addTask(AddTaskDTO addTaskDTO) {
@@ -26,10 +29,12 @@ public class TaskService {
 
     private Tasks mapTask(AddTaskDTO addTaskDTO) {
         Tasks task = new Tasks();
+        TypesOfTasks typesOfTasks = this.taskPriorityService.findTypeOfTask(addTaskDTO.getTaskPriority());
         task.setDescription(addTaskDTO.getDescription());
         task.setTitle(addTaskDTO.getTitle());
         task.setStartDate(addTaskDTO.getStartDate());
         task.setEndDate(addTaskDTO.getEndDate());
+        task.setTypesOfTasks(typesOfTasks);
         return task;
     }
 

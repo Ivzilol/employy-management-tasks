@@ -7,6 +7,9 @@ public interface TaskPriorityService {
 
     void initTask();
 
+    TypesOfTasks findTypeOfTask(TaskPriority taskPriority);
 
     TypesOfTasks findTaskByTaskName(TaskPriority taskPriority);
+
+
 }

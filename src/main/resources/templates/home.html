@@ -11,6 +11,24 @@
 </head>
 <body>
 <header th:replace="fragments/navbar::#navbar-section"></header>
+    <main>
+        <section class="home">
+            <article class="home-container">
+                <div class="home-container-article">
 
+                    <h3 class="home-container-title">Important</h3>
+                    <div class="home-container-all">
+                        <div th:each="important : ${tasks.important} " class="home-container-all-content">
+                            <span th:text="|*{important.title} - *{important.description} (*{important.getStartDate()}) (*{important.getEndDate()})|"></span>
+                            <a class="home-container-a"></a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+        </section>
+    </main>
 </body>
 </html>

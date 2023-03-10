@@ -4,36 +4,36 @@ import java.util.Set;
 
 public class TaskByPriorityDTO {
 
-    private Set<TaskDTO> Important;
+    private Set<TaskDTO> important;
 
-    private Set<TaskDTO> Average;
+    private Set<TaskDTO> average;
 
-    private Set<TaskDTO> Unimportant;
+    private Set<TaskDTO> unimportant;
 
     public TaskByPriorityDTO() {
     }
 
     public Set<TaskDTO> getImportant() {
-        return Important;
+        return important;
     }
 
     public void setImportant(Set<TaskDTO> important) {
-        Important = important;
+        this.important = important;
     }
 
     public Set<TaskDTO> getAverage() {
-        return Average;
+        return average;
     }
 
     public void setAverage(Set<TaskDTO> average) {
-        Average = average;
+        this.average = average;
     }
 
     public Set<TaskDTO> getUnimportant() {
-        return Unimportant;
+        return unimportant;
     }
 
     public void setUnimportant(Set<TaskDTO> unimportant) {
-        Unimportant = unimportant;
+        this.unimportant = unimportant;
     }
 }
