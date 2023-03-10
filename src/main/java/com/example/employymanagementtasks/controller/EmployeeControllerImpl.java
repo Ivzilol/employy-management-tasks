@@ -78,6 +78,15 @@ public class EmployeeControllerImpl implements EmployeeController {
         return "redirect:/home";
     }
 
+    @Override
+    public String logout() {
+        if (!this.loggedUser.isLogged()) {
+            return "redirect:/users/login";
+        }
+        this.userService.logout();
+        return "redirect:/";
+    }
+
     @ModelAttribute
     public LoginDTO loginDTO() {
         return new LoginDTO();

@@ -5,6 +5,7 @@ import com.example.employymanagementtasks.model.dto.UserDTO;
 import com.example.employymanagementtasks.model.entity.Employees;
 import com.example.employymanagementtasks.repository.EmployeeRepository;
 import com.example.employymanagementtasks.util.LoggedUser;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +16,13 @@ public class UserService {
     private final PasswordEncoder encoder;
     private final LoggedUser loggedUser;
 
-    public UserService(EmployeeRepository employeeRepository, PasswordEncoder encoder, LoggedUser loggedUser) {
+    private final HttpSession httpSession;
+
+    public UserService(EmployeeRepository employeeRepository, PasswordEncoder encoder, LoggedUser loggedUser, HttpSession httpSession) {
         this.employeeRepository = employeeRepository;
         this.encoder = encoder;
         this.loggedUser = loggedUser;
+        this.httpSession = httpSession;
     }
 
     public boolean checkCredential(String username, String password) {
@@ -78,5 +82,11 @@ public class UserService {
         user.setPhoneNumber(registerDTO.getPhoneNumber());
 
         return user;
+    }
+
+    public void logout() {
+        this.httpSession.invalidate();
+        this.loggedUser.setUsername(null);
+        this.loggedUser.setId(null);
     }
 }
