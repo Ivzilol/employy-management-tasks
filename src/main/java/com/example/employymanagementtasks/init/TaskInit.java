@@ -1,15 +1,15 @@
 package com.example.employymanagementtasks.init;
 
-import com.example.employymanagementtasks.service.TaskService;
+import com.example.employymanagementtasks.service.TaskPriorityService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TaskInit implements CommandLineRunner {
 
-    private final TaskService taskService;
+    private final TaskPriorityService taskService;
 
-    public TaskInit(TaskService taskService) {
+    public TaskInit(TaskPriorityService taskService) {
         this.taskService = taskService;
     }
 

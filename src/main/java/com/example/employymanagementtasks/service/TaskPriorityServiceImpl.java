@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 
 @Service
-public class TaskServiceImpl implements TaskService{
+public class TaskPriorityServiceImpl implements TaskPriorityService {
 
     private final TaskRepository taskRepository;
 
-    public TaskServiceImpl(TaskRepository taskRepository) {
+    public TaskPriorityServiceImpl(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
 
@@ -22,7 +22,7 @@ public class TaskServiceImpl implements TaskService{
             System.out.println("init");
             return;
         }
-        Arrays.stream(TaskPriority.values())
+        Arrays.stream(com.example.employymanagementtasks.model.entity.TaskPriority.values())
                 .forEach(task -> {
                     Tasks tasks = new Tasks();
                     tasks.setTaskPriority(task);
@@ -31,4 +31,8 @@ public class TaskServiceImpl implements TaskService{
                 });
 
     }
+
+
+
+
 }

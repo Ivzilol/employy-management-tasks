@@ -2,6 +2,7 @@ package com.example.employymanagementtasks.model.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -16,10 +17,10 @@ public class Tasks extends BaseEntity {
     private String description;
 
     @Column(nullable = false, name = "start_date")
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column(nullable = false, name = "end_date")
-    private Date endDate;
+    private LocalDate endDate;
 
     @Column(nullable = false, unique = true)
     @Enumerated(EnumType.STRING)
@@ -51,19 +52,19 @@ public class Tasks extends BaseEntity {
         this.description = description;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

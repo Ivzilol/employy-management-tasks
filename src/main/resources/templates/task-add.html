@@ -1,11 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+
+>
 <head>
     <meta charset="UTF-8">
     <title>employee-management</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<header th:replace="fragments/navbar::#navbar-section"></header>
+<main>
+    <h1 class="task-add"><span>Add Task</span></h1>
+    <hr class="task-add-underline"/>
+    <form class="task-add" method="post" action="/tasks/add-task" th:object="${addTaskDTO}">
+        <div class="task-add-group">
+            <div class="task-add-groups">
+                <label class="add-song-input" id="add-song-title">Title</label>
+                <input
+                    th:field="*{title}"
+                    th:errorclass="'is-invalid alert-danger'"
+                    type="text"
+                    class="add-song-title"
+                    id="title"
+                    name="title"
+                />
+                <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+                       class="text-danger">Title error message</small>
+            </div>
+            <div class="task-add-groups">
+                <label class="add-song-input" id="add-song-description">Description</label>
+                <input
+                        th:field="*{description}"
+                        th:errorclass="'is-invalid alert-danger'"
+                        type="text"
+                        class="add-song-description"
+                        id="description"
+                        name="description"
+                />
+                <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                       class="text-danger">Description error message</small>
+            </div>
+            <div class="task-add-groups">
+                <label class="add-song-input" id="add-song-starDate">Start Date</label>
+                <input
+                        th:field="*{startDate}"
+                        th:errorclass="'is-invalid alert-danger'"
+                        type="text"
+                        class="add-song-starDate"
+                        id="starDate"
+                        name="starDate"
+                />
+                <small th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"
+                       class="text-danger">Start Date error message</small>
+            </div>
+            <div class="task-add-groups">
+                <label class="add-song-input" id="add-song-endDate">End Date</label>
+                <input
+                        th:field="*{endDate}"
+                        th:errorclass="'is-invalid alert-danger'"
+                        type="text"
+                        class="add-song-endDate"
+                        id="endDate"
+                        name="endDate"
+                />
+                <small th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"
+                       class="text-danger">End Date error message</small>
+            </div>
+            <div class="task-add-groups">
+                <label class="add-song-input" id="add-song-taskPriority">Task Priority</label>
+                <select
+                        th:field="*{taskPriority}"
+                        th:errorclass="'is-invalid alert-danger'"
+                        class="add-song-priority"
+                        id="taskPriority"
+                        name="taskPriority"
+                >
+                    <option value="">Select Priority</option>
+                    <option value="IMPORTANT">Important</option>
+                    <option value="AVERAGE">Average</option>
+                    <option value="UNIMPORTANT">Unimportant</option>
+                </select>
+                <small th:if="${#fields.hasErrors('taskPriority')}" th:errors="*{taskPriority}"
+                       class="text-danger">Task Priority error message</small>
+            </div>
+            <div class="task-add-groups">
+                <label class="add-song-input" id="add-song-status">Status</label>
+                <select
+                        th:field="*{status}"
+                        th:errorclass="'is-invalid alert-danger'"
+                        class="add-song-status"
+                        id="status"
+                        name="status"
+                >
+                    <option value="">Select Priority</option>
+                    <option value="NOT_IN_PROGRESS">Not in Progress</option>
+                    <option value="IN_PROGRESS">In progress</option>
+                    <option value="COMPLETED">Completed</option>
+                </select>
+                <small th:if="${#fields.hasErrors('status')}" th:errors="*{status}"
+                       class="text-danger">Status error message</small>
+            </div>
+        </div>
 
+    </form>
+</main>
 </body>
 </html>
