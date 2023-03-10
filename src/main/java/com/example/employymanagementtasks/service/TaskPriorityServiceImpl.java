@@ -2,7 +2,9 @@ package com.example.employymanagementtasks.service;
 
 import com.example.employymanagementtasks.model.entity.TaskPriority;
 import com.example.employymanagementtasks.model.entity.Tasks;
+import com.example.employymanagementtasks.model.entity.TypesOfTasks;
 import com.example.employymanagementtasks.repository.TaskRepository;
+import com.example.employymanagementtasks.repository.TypeOfTasksRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -12,8 +14,11 @@ public class TaskPriorityServiceImpl implements TaskPriorityService {
 
     private final TaskRepository taskRepository;
 
-    public TaskPriorityServiceImpl(TaskRepository taskRepository) {
+    private final TypeOfTasksRepository typeOfTasksRepository;
+
+    public TaskPriorityServiceImpl(TaskRepository taskRepository, TypeOfTasksRepository typeOfTasksRepository) {
         this.taskRepository = taskRepository;
+        this.typeOfTasksRepository = typeOfTasksRepository;
     }
 
     @Override
@@ -31,7 +36,10 @@ public class TaskPriorityServiceImpl implements TaskPriorityService {
 
     }
 
-
+    @Override
+    public TypesOfTasks findTaskByTaskName(TaskPriority taskPriority) {
+        return this.typeOfTasksRepository.findByTaskPriority(taskPriority).orElseThrow();
+    }
 
 
 }

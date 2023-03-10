@@ -3,6 +3,7 @@ package com.example.employymanagementtasks.service;
 import com.example.employymanagementtasks.model.dto.AddTaskDTO;
 import com.example.employymanagementtasks.model.dto.TaskDTO;
 import com.example.employymanagementtasks.model.entity.Tasks;
+import com.example.employymanagementtasks.model.entity.TypesOfTasks;
 import com.example.employymanagementtasks.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
@@ -32,20 +33,28 @@ public class TaskService {
         return task;
     }
 
-//    public Set<TaskDTO> findTaskByPriority() {
-//        return this.taskRepository.findTasksByTaskPriority()
-//                .stream()
-//                .map(this::mapTaskDTO)
-//                .collect(Collectors.toList());
-//    }
-//
-//    private TaskDTO mapTaskDTO(Tasks task) {
-//        TaskDTO taskDTO = new TaskDTO();
-//        taskDTO.setId(task.getId());
-//        taskDTO.setDescription(task.getDescription());
-//        taskDTO.setTitle(task.getTitle());
-//        taskDTO.setStartDate(task.getStartDate());
-//        taskDTO.setEndDate(task.getEndDate());
-//        return taskDTO;
-//    }
+    public Set<TaskDTO> findTaskByPriority(TypesOfTasks typesOfTasks) {
+        return this.taskRepository.findByTypesOfTasks(typesOfTasks)
+                .stream()
+                .map(this::mapTaskDTO)
+                .collect(Collectors.toSet());
+    }
+
+    private TaskDTO mapTaskDTO(Tasks tasks) {
+        TaskDTO taskDTO = new TaskDTO();
+        taskDTO.setId(tasks.getId());
+        taskDTO.setTitle(tasks.getTitle());
+        taskDTO.setDescription(tasks.getDescription());
+        taskDTO.setStartDate(tasks.getStartDate());
+        taskDTO.setEndDate(tasks.getEndDate());
+        return  taskDTO;
+    }
+
+
+    public Set<TaskDTO> getTaskList(Long id) {
+        return this.taskRepository.findAllByUserId(id)
+                .stream()
+                .map(this::mapTaskDTO)
+                .collect(Collectors.toSet());
+    }
 }

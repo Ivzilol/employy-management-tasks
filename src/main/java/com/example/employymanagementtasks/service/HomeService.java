@@ -2,7 +2,8 @@ package com.example.employymanagementtasks.service;
 
 import com.example.employymanagementtasks.model.dto.TaskByPriorityDTO;
 import com.example.employymanagementtasks.model.dto.TaskDTO;
-import com.example.employymanagementtasks.model.entity.Tasks;
+import com.example.employymanagementtasks.model.entity.TaskPriority;
+import com.example.employymanagementtasks.model.entity.TypesOfTasks;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -13,19 +14,26 @@ public class HomeService {
 
     private final TaskService taskService;
 
-    public HomeService(TaskService taskService) {
+    private final TaskPriorityService taskPriorityService;
+
+    public HomeService(TaskService taskService, TaskPriorityService taskPriorityService) {
         this.taskService = taskService;
+        this.taskPriorityService = taskPriorityService;
     }
 
+    public TaskByPriorityDTO getTasks() {
+        TaskByPriorityDTO tasks = new TaskByPriorityDTO();
+        tasks.setImportant(this.getTasksByPriority(taskPriorityService
+                .findTaskByTaskName(TaskPriority.IMPORTANT)));
+        tasks.setAverage(this.getTasksByPriority(taskPriorityService
+                .findTaskByTaskName(TaskPriority.AVERAGE)));
+        tasks.setAverage(this.getTasksByPriority(taskPriorityService
+                .findTaskByTaskName(TaskPriority.UNIMPORTANT)));
+        return tasks;
+    }
 
-//    public TaskByPriorityDTO getTasks(Tasks tasks) {
-//        TaskByPriorityDTO task = new TaskByPriorityDTO();
-//        task.setImportant(tasks.getTaskPriority().IMPORTANT);
-//
-//        return task;
-//    }
-//
-//    private Set<TaskDTO> getTaskByPriority() {
-//         this.taskService.findTaskByPriority();
-//    }
+    private Set<TaskDTO> getTasksByPriority(TypesOfTasks typesOfTasks) {
+        return this.taskService.findTaskByPriority(typesOfTasks);
+    }
+
 }

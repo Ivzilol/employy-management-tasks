@@ -12,6 +12,9 @@ public class TypesOfTasks extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private TaskPriority taskPriority;
 
+    @Column
+    private String Description;
+
     @OneToMany(mappedBy = "typesOfTasks", fetch = FetchType.EAGER)
     private Set<Tasks> tasks;
 
@@ -32,5 +35,13 @@ public class TypesOfTasks extends BaseEntity {
 
     public void setTasks(Set<Tasks> tasks) {
         this.tasks = tasks;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
     }
 }
