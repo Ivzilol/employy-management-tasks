@@ -84,6 +84,11 @@ public class EmployeeControllerImpl implements EmployeeController {
     }
 
     @ModelAttribute
+    public RegisterDTO registerDTO () {
+        return new RegisterDTO();
+    }
+
+    @ModelAttribute
     public void addAttribute(Model model) {
         model.addAttribute("validateCredential");
     }

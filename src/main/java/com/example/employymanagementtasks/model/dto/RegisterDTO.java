@@ -21,11 +21,11 @@ public class RegisterDTO {
     private String username;
 
     @NotNull
-    @Size(min = 3, max = 20, message = "Username must be min 3 and max 20 symbols")
+    @Size(min = 3, max = 20, message = "Password must be min 3 and max 20 symbols")
     private String password;
 
     @NotNull
-    @Size(min = 3, max = 20, message = "Username must be min 3 and max 20 symbols")
+    @Size(min = 3, max = 20, message = "Confirm password must be min 3 and max 20 symbols")
     private String confirmPassword;
 
     @NotNull
@@ -35,7 +35,7 @@ public class RegisterDTO {
     private BigDecimal salary;
 
     @NotNull
-    private int phoneNumber;
+    private String phoneNumber;
 
     @UniqueEmail
     @Email
@@ -97,11 +97,11 @@ public class RegisterDTO {
         this.salary = salary;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

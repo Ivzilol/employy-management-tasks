@@ -10,5 +10,122 @@
 </head>
 <body>
 <header th:replace="fragments/navbar::#navbar-section"></header>
+<main>
+    <h1 class="title"><span class="title-login">Register</span></h1>
+    <hr class="title-underline"/>
+    <form class="register" method="post" action="/users/register" th:object="${registerDTO}">
+        <article class="register-group">
+            <div class="register=holder">
+                <label class="register-holder-input" id="register-username">Username</label>
+                <input
+                        th:field="*{username}"
+                        th:errorclass="'is-invalid alert-danger'"
+                        type="text"
+                        class="register-username"
+                        id="username"
+                        name="username"
+                />
+                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                       class="text-danger">Username error message</small>
+            </div>
+            <div class="register=holder">
+                <label class="register-holder-input" id="register-email">Email</label>
+                <input
+                        th:field="*{email}"
+                        th:errorclass="'is-invalid alert-danger'"
+                        type="text"
+                        class="register-email"
+                        id="email"
+                        name="email"
+                />
+                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                       class="text-danger">Email error message</small>
+            </div>
+            <div class="register-holder">
+                <label class="register-holder-input" id="register-password">Password</label>
+                <input
+                        th:field="*{password}"
+                        th:errorclass="'is-invalid alert-danger'"
+                        type="password"
+                        class="register-password"
+                        id="password"
+                        name="password"
+                />
+                <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                       class="text-danger">Password error message</small>
+            </div>
+            <div class="register=holder">
+                <label class="register-holder-input" id="register-confirmPassword">Confirm Password</label>
+                <input
+                        th:field="*{confirmPassword}"
+                        th:errorclass="alert-danger"
+                        type="password"
+                        class="register-confirmPassword"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                />
+                <small th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"
+                       class="text-danger">Confirm Password error message</small>
+            </div>
+            <div class="register=holder">
+                <label class="register-holder-input" id="register-fullName">Full Name</label>
+                <input
+                        th:field="*{fullName}"
+                        th:errorclass="alert-danger"
+                        type="text"
+                        class="register-fullName"
+                        id="fullName"
+                        name="fullName"
+                />
+                <small th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"
+                       class="text-danger">Full Name error message</small>
+            </div>
+            <div class="register=holder">
+                <label class="register-holder-input" id="register-phoneNumber">Phone Number</label>
+                <input
+                        th:field="*{phoneNumber}"
+                        th:errorclass="alert-danger"
+                        type="text"
+                        class="register-phoneNumber"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                />
+                <small th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"
+                       class="text-danger">Phone Number error message</small>
+            </div>
+            <div class="register=holder">
+                <label class="register-holder-input" id="register-salary">Salary</label>
+                <input
+                        th:field="*{salary}"
+                        th:errorclass="alert-danger"
+                        type="number"
+                        class="register-salary"
+                        id="salary"
+                        name="salary"
+                />
+                <small th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"
+                       class="text-danger">Salary error message</small>
+            </div>
+            <div class="register=holder">
+                <label class="register-holder-input" id="register-birthDate">Birth Date</label>
+                <input
+                        th:field="*{birthDate}"
+                        th:errorclass="alert-danger"
+                        type="date"
+                        class="register-birthDate"
+                        id="birthDate"
+                        name="birthDate"
+                />
+                <small th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"
+                       class="text-danger">Birth Date error message</small>
+            </div>
+            <div class="button-holder">
+                <button type="submit" class="button-holder-register" value="Register">Register</button>
+            </div>
+        </article>
+
+    </form>
+
+</main>
 </body>
 </html>

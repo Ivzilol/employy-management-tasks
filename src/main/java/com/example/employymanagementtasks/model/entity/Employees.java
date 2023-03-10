@@ -24,7 +24,7 @@ public class Employees extends BaseEntity{
     private String email;
 
     @Column(nullable = false, name = "phone_number")
-    private int phoneNumber;
+    private String phoneNumber;
 
     @Column(nullable = false, name = "birth_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -66,11 +66,11 @@ public class Employees extends BaseEntity{
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

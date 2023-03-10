@@ -24,4 +24,6 @@ public interface EmployeeController {
 
     @PostMapping("/register")
     String registerConfirm(@Valid RegisterDTO registerDTO, BindingResult result, RedirectAttributes redirectAttributes);
+//    @GetMapping("/logout")
+//    String logout();
 }

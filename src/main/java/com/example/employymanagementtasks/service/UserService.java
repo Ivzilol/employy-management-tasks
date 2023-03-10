@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class    UserService {
+public class UserService {
 
     private final EmployeeRepository employeeRepository;
     private final PasswordEncoder encoder;
@@ -75,6 +75,7 @@ public class    UserService {
         user.setSalary(registerDTO.getSalary());
         user.setFullName(registerDTO.getFullName());
         user.setBirthDate(registerDTO.getBirthDate());
+        user.setPhoneNumber(registerDTO.getPhoneNumber());
 
         return user;
     }
