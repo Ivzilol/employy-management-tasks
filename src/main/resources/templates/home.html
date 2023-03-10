@@ -24,6 +24,21 @@
                         </div>
 
                     </div>
+                    <h3 class="home-container-title">Average</h3>
+                    <div class="home-container-all">
+                        <div th:each="average : ${tasks.average} " class="home-container-all-content">
+                            <span th:text="|*{average.title} - *{average.description} (*{average.getStartDate()}) (*{average.getEndDate()})|"></span>
+                            <a class="home-container-a"></a>
+                        </div>
+                    </div>
+
+                    <h3 class="home-container-title">Unimportant</h3>
+                    <div class="home-container-all">
+                        <div th:each="unimportant : ${tasks.unimportant} " class="home-container-all-content">
+                            <span th:text="|*{unimportant.title} - *{unimportant.description} (*{unimportant.getStartDate()}) (*{unimportant.getEndDate()})|"></span>
+                            <a class="home-container-a"></a>
+                        </div>
+                    </div>
 
                 </div>
 

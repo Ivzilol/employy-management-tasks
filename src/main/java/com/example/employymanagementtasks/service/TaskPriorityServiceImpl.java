@@ -1,7 +1,6 @@
 package com.example.employymanagementtasks.service;
 
 import com.example.employymanagementtasks.model.entity.TaskPriority;
-import com.example.employymanagementtasks.model.entity.Tasks;
 import com.example.employymanagementtasks.model.entity.TypesOfTasks;
 import com.example.employymanagementtasks.repository.TaskRepository;
 import com.example.employymanagementtasks.repository.TypeOfTasksRepository;
