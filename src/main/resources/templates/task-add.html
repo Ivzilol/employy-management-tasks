@@ -47,7 +47,7 @@
                 <input
                         th:field="*{startDate}"
                         th:errorclass="'is-invalid alert-danger'"
-                        type="text"
+                        type="date"
                         class="add-song-starDate"
                         id="starDate"
                         name="starDate"
@@ -60,7 +60,7 @@
                 <input
                         th:field="*{endDate}"
                         th:errorclass="'is-invalid alert-danger'"
-                        type="text"
+                        type="date"
                         class="add-song-endDate"
                         id="endDate"
                         name="endDate"
@@ -101,6 +101,9 @@
                 </select>
                 <small th:if="${#fields.hasErrors('status')}" th:errors="*{status}"
                        class="text-danger">Status error message</small>
+            </div>
+            <div class="add-task-button">
+                <button type="submit" class="button" value="Register">Add Task</button>
             </div>
         </div>
 

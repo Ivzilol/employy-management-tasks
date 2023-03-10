@@ -3,7 +3,6 @@ package com.example.employymanagementtasks.model.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Set;
 
 @Table
@@ -22,13 +21,9 @@ public class Tasks extends BaseEntity {
     @Column(nullable = false, name = "end_date")
     private LocalDate endDate;
 
-    @Column(nullable = false, unique = true)
-    @Enumerated(EnumType.STRING)
-    private TaskPriority taskPriority;
-
-    @Column(nullable = false, unique = true)
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_types_of_tasks")
+    private TypesOfTasks typesOfTasks;
 
     @ManyToMany(mappedBy = "tasks")
     private Set<Employees> employees;
@@ -68,27 +63,19 @@ public class Tasks extends BaseEntity {
         this.endDate = endDate;
     }
 
+    public TypesOfTasks getTypesOfTasks() {
+        return typesOfTasks;
+    }
+
+    public void setTypesOfTasks(TypesOfTasks typesOfTasks) {
+        this.typesOfTasks = typesOfTasks;
+    }
+
     public Set<Employees> getEmployees() {
         return employees;
     }
 
     public void setEmployees(Set<Employees> employees) {
         this.employees = employees;
-    }
-
-    public TaskPriority getTaskPriority() {
-        return taskPriority;
-    }
-
-    public void setTaskPriority(TaskPriority taskPriority) {
-        this.taskPriority = taskPriority;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 }

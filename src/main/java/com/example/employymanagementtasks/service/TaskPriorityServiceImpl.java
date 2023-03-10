@@ -25,7 +25,6 @@ public class TaskPriorityServiceImpl implements TaskPriorityService {
         Arrays.stream(com.example.employymanagementtasks.model.entity.TaskPriority.values())
                 .forEach(task -> {
                     Tasks tasks = new Tasks();
-                    tasks.setTaskPriority(task);
                     tasks.setDescription("...");
                     this.taskRepository.save(tasks);
                 });
