@@ -13,11 +13,11 @@ public class AddTaskDTO {
 
     private Long id;
 
-    @Size(min = 30, message = "Description must be min 30 symbols")
+    @Size(min = 10, max = 30, message = "Description must be min 10 and max 30 symbols")
     @NotNull
     private String description;
 
-    @Size(min = 10, max = 40, message = "Title must be min 10 and max 40 symbols")
+    @Size(min = 5, max = 20, message = "Title must be min 5 and max 20 symbols")
     @NotNull
     private String title;
 

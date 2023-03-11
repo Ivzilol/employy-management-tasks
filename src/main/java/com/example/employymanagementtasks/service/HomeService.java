@@ -31,7 +31,7 @@ public class HomeService {
                 .findTaskByTaskName(TaskPriority.IMPORTANT)));
         tasks.setAverage(this.getTasksByPriority(taskPriorityService
                 .findTaskByTaskName(TaskPriority.AVERAGE)));
-        tasks.setAverage(this.getTasksByPriority(taskPriorityService
+        tasks.setUnimportant(this.getTasksByPriority(taskPriorityService
                 .findTaskByTaskName(TaskPriority.UNIMPORTANT)));
         return tasks;
     }

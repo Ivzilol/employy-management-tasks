@@ -12,6 +12,7 @@
 <nav class="navbar">
     <section class="navbar-section" id="navbar-section">
         <a class="nav-link" href="/">Employee Management</a>
+        <a class="nav-link" th:if="${@loggedUser.isLogged()}" href="/tasks/add-task">Add Task</a>
         <ul class="navbar-section-row">
             <li th:if="${!@loggedUser.isLogged()}" class="navbar-section-row-item">
                 <a class="navbar-section-row-item-link" href="/users/login">Login</a>

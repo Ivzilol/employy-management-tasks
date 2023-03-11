@@ -8,6 +8,7 @@ body {
     font-family: Roboto, sans-serif;
 }
 
+
 .navbar-section {
     display: flex;
     flex-direction: row;
@@ -15,6 +16,7 @@ body {
     justify-content: space-between;
     padding: 10px 90px;
     color: black;
+    background-color: aliceblue;
 }
 
 .navbar-section a {
@@ -33,4 +35,210 @@ body {
 
 .navbar-section .navbar-section-row .navbar-section-row-item a {
     text-decoration: none;
+}
+
+.add-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: beige;
+    height: 700px;
+}
+
+.task-add-groups {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.add-song-input {
+    margin-bottom: 10px;
+}
+
+.add-song-title {
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.add-song-description {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.add-song-starDate {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.add-song-endDate {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.add-song-priority {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.add-task-button {
+    margin-left: 85px;
+    margin-top: 10px;
+}
+
+.add-task-button .button {
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+    padding: 10px;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+.main-login {
+    background-color: beige;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-login-label {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.form-input-control {
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.button-push {
+    margin-top: 10px;
+    margin-left: 40px;
+    padding: 5px;
+    width: 100px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.main-register {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: beige;
+}
+
+.register-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-holder-input {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.register-username {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.register-email {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.register-password {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.register-confirmPassword {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.register-fullName {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.register-phoneNumber {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.register-salary {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.register-birthDate {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.button-holder-register {
+    border: none;
+    width: 120px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    margin-left: 100px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.home-container {
+    display: flex;
+    background-color: beige;
+    height: 700px;
+}
+
+.home-container-article-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.home-container-article-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
 }

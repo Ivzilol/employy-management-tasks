@@ -11,7 +11,7 @@
 </head>
 <body>
 <header th:replace="fragments/navbar::#navbar-section"></header>
-<main>
+<main class="add-task">
     <h1 class="task-add"><span>Add Task</span></h1>
     <hr class="task-add-underline"/>
     <form class="task-add" method="post" action="/tasks/add-task" th:object="${addTaskDTO}">
@@ -103,7 +103,7 @@
 <!--                       class="text-danger">Status error message</small>-->
 <!--            </div>-->
             <div class="add-task-button">
-                <button type="submit" class="button" value="Register">Add Task</button>
+                <button  type="submit" class="button" value="Register">Add Task</button>
             </div>
         </div>
 

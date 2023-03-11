@@ -11,42 +11,65 @@
 </head>
 <body>
 <header th:replace="fragments/navbar::#navbar-section"></header>
-    <main>
-        <section class="home">
-            <article class="home-container">
-                <div class="home-container-article-left">
+<main>
+    <section class="home">
+        <article class="home-container">
+            <div class="home-container-article-left">
 
-                    <h3 class="home-container-title">Important</h3>
-                    <div class="home-container-all">
-                        <div th:each="important : ${tasks.important} " class="home-container-all-content">
-                            <span th:text="|*{important.title} - *{important.description} (*{important.getStartDate()}) (*{important.getEndDate()})|"></span>
-                            <a class="home-container-a"></a>
-                        </div>
-
-                    </div>
-                    <h3 class="home-container-title">Average</h3>
-                    <div class="home-container-all">
-                        <div th:each="average : ${tasks.average} " class="home-container-all-content">
-                            <span th:text="|*{average.title} - *{average.description} (*{average.getStartDate()}) (*{average.getEndDate()})|"></span>
-                            <a class="home-container-a"></a>
-                        </div>
-                    </div>
-
-                    <h3 class="home-container-title">Unimportant</h3>
-                    <div class="home-container-all">
-                        <div th:each="unimportant : ${tasks.unimportant} " class="home-container-all-content">
-                            <span th:text="|*{unimportant.title} - *{unimportant.description} (*{unimportant.getStartDate()}) (*{unimportant.getEndDate()})|"></span>
-                            <a class="home-container-a"></a>
-                        </div>
+                <h3 class="home-container-title">Important</h3>
+                <div class="home-container-all">
+                    <div th:each="important : ${tasks.important} " class="home-container-all-content">
+                        <span th:text="|*{important.title} - *{important.description} Start Day - *{important.getStartDate()} End Day - *{important.getEndDate()}|"></span>
+                        <a class="home-container-a"
+                           th:href="@{/home/add-task-to-task-list/{id}(id = ${important.id})}"
+                        >Add Task</a>
                     </div>
 
                 </div>
-                <div class="home-container-article-left">
-                    <h3>My Tasks List</h3>
+                <h3 class="home-container-title">Average</h3>
+                <div class="home-container-all">
+                    <div th:each="average : ${tasks.average} " class="home-container-all-content">
+                        <span th:text="|*{average.title} - *{average.description} Start Day - *{average.getStartDate()} End Day - *{average.getEndDate()}|"></span>
+                        <a class="home-container-a"
+                           th:href="@{/home/add-task-to-task-list/{id}(id = ${average.id})}"
+                        >Add Task</a>
+                    </div>
                 </div>
 
-            </article>
-        </section>
-    </main>
+                <h3 class="home-container-title">Unimportant</h3>
+                <div class="home-container-all">
+                    <div th:each="unimportant : ${tasks.unimportant} " class="home-container-all-content">
+                        <span th:text="|*{unimportant.title} - *{unimportant.description} Start Day - *{unimportant.getStartDate()}) End Day - *{unimportant.getEndDate()}|"></span>
+                        <a class="home-container-a"
+                           th:href="@{/home/add-task-to-task-list/{id}(id = ${unimportant.id})}"
+                        >Add Task</a>
+                    </div>
+                </div>
+            </div>
+            <div class="home-container-article-right">
+                <h3 class="home-right-title">My Tasks List</h3>
+
+                <div class="home-right-table-container">
+                    <table class="home-right-table">
+                        <tr th:each="task : ${taskList}">
+                            <th scope="row"></th>
+                            <td th:text="|*{task.title} - *{task.description} Start Day - *{task.getStartDate()} End Da - *{task.getEndDate()}|">
+                                <span></span>
+                            </td>
+                            <td>
+                                <a
+                                        class="home-right-table-remove"
+                                        th:href="@{/home/remove-task-from-task-list/{id}(id = ${task.id})}"
+                                >Remove</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <a href="/home/remove-all-task-from-task-list" class="home-right-table-remove-all">Remove All Task</a>
+            </div>
+
+        </article>
+    </section>
+</main>
 </body>
 </html>

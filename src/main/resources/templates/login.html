@@ -10,7 +10,7 @@
 </head>
 <body>
 <header th:replace="fragments/navbar::#navbar-section"></header>
-<main>
+<main class="main-login">
     <h1 class="title"><span class="title-login">Login</span></h1>
     <hr class="title-underline"/>
     <form
@@ -35,6 +35,7 @@
                     class="form-input-control"
                     id="username-input"
                     name="username-input"
+                    placeholder="username"
             />
         </div>
         <div class="form-login">
@@ -48,6 +49,7 @@
                     class="form-input-control"
                     id="password-input"
                     name="password-input"
+                    placeholder="password"
             />
         </div>
         <div class="button">
