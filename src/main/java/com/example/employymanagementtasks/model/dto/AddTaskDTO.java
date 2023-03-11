@@ -17,7 +17,7 @@ public class AddTaskDTO {
     @NotNull
     private String description;
 
-    @Size(min = 10,  max = 40, message = "Title must be min 10 and max 40 symbols")
+    @Size(min = 10, max = 40, message = "Title must be min 10 and max 40 symbols")
     @NotNull
     private String title;
 
@@ -31,8 +31,6 @@ public class AddTaskDTO {
     @NotNull
     private TaskPriority taskPriority;
 
-    @NotNull
-    private Status status;
 
     public AddTaskDTO() {
     }
@@ -85,11 +83,4 @@ public class AddTaskDTO {
         this.taskPriority = taskPriority;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 }

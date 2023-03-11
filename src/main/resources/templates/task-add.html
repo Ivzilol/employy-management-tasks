@@ -85,23 +85,23 @@
                 <small th:if="${#fields.hasErrors('taskPriority')}" th:errors="*{taskPriority}"
                        class="text-danger">Task Priority error message</small>
             </div>
-            <div class="task-add-groups">
-                <label class="add-song-input" id="add-song-status">Status</label>
-                <select
-                        th:field="*{status}"
-                        th:errorclass="'is-invalid alert-danger'"
-                        class="add-song-status"
-                        id="status"
-                        name="status"
-                >
-                    <option value="">Select Priority</option>
-                    <option value="NOT_IN_PROGRESS">Not in Progress</option>
-                    <option value="IN_PROGRESS">In progress</option>
-                    <option value="COMPLETED">Completed</option>
-                </select>
-                <small th:if="${#fields.hasErrors('status')}" th:errors="*{status}"
-                       class="text-danger">Status error message</small>
-            </div>
+<!--            <div class="task-add-groups">-->
+<!--                <label class="add-song-input" id="add-song-status">Status</label>-->
+<!--                <select-->
+<!--                        th:field="*{status}"-->
+<!--                        th:errorclass="'is-invalid alert-danger'"-->
+<!--                        class="add-song-status"-->
+<!--                        id="status"-->
+<!--                        name="status"-->
+<!--                >-->
+<!--                    <option value="">Select Priority</option>-->
+<!--                    <option value="NOT_IN_PROGRESS">Not in Progress</option>-->
+<!--                    <option value="IN_PROGRESS">In progress</option>-->
+<!--                    <option value="COMPLETED">Completed</option>-->
+<!--                </select>-->
+<!--                <small th:if="${#fields.hasErrors('status')}" th:errors="*{status}"-->
+<!--                       class="text-danger">Status error message</small>-->
+<!--            </div>-->
             <div class="add-task-button">
                 <button type="submit" class="button" value="Register">Add Task</button>
             </div>
