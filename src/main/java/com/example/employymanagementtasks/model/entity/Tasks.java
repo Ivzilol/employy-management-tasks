@@ -70,4 +70,12 @@ public class Tasks extends BaseEntity {
     public void setEmployees(Set<Employees> employees) {
         this.employees = employees;
     }
+
+    public TypesOfTasks getTypesOfTasks() {
+        return typesOfTasks;
+    }
+
+    public Set<Employees> getEmployees() {
+        return employees;
+    }
 }

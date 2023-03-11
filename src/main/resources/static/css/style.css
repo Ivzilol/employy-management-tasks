@@ -242,3 +242,25 @@ body {
     align-items: center;
     font-size: 12px;
 }
+
+.index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: beige;
+    height: 500px;
+    padding: 10px 300px;
+}
+
+.index p {
+    text-align: center;
+}
+
+.container-footer-name {
+    text-align: center;
+}
+
+.text-danger {
+    color: red;
+    text-align: center;
+}

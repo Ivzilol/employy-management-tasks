@@ -36,4 +36,12 @@ public class TypesOfTasks extends BaseEntity {
     public void setDescription(String description) {
         Description = description;
     }
+
+    public TaskPriority getTaskPriority() {
+        return taskPriority;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
 }

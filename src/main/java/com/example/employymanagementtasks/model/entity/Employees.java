@@ -101,4 +101,20 @@ public class Employees extends BaseEntity{
     public void deleteAllTaskFromTaskList() {
         this.tasks.clear();
     }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
 }

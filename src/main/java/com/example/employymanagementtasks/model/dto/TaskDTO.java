@@ -56,4 +56,6 @@ public class TaskDTO {
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
+
+
 }

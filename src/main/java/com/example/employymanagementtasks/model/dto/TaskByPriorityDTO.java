@@ -36,4 +36,6 @@ public class TaskByPriorityDTO {
     public void setUnimportant(Set<TaskDTO> unimportant) {
         this.unimportant = unimportant;
     }
+
+
 }
