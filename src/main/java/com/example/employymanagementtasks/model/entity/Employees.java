@@ -105,4 +105,16 @@ public class Employees extends BaseEntity{
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void addTaskToTaskList(Tasks task) {
+        this.tasks.add(task);
+    }
+
+    public void removeTaskFromTaskList(Long taskId) {
+        this.tasks.removeIf(t -> t.getId().equals(taskId));
+    }
+
+    public void deleteAllTaskFromTaskList() {
+        this.tasks.clear();
+    }
 }

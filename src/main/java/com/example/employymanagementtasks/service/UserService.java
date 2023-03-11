@@ -3,6 +3,7 @@ package com.example.employymanagementtasks.service;
 import com.example.employymanagementtasks.model.dto.RegisterDTO;
 import com.example.employymanagementtasks.model.dto.UserDTO;
 import com.example.employymanagementtasks.model.entity.Employees;
+import com.example.employymanagementtasks.model.entity.Tasks;
 import com.example.employymanagementtasks.repository.EmployeeRepository;
 import com.example.employymanagementtasks.util.LoggedUser;
 import jakarta.servlet.http.HttpSession;
@@ -88,5 +89,29 @@ public class UserService {
         this.httpSession.invalidate();
         this.loggedUser.setUsername(null);
         this.loggedUser.setId(null);
+    }
+
+    public void addTaskToUser(Long userId, Tasks task) {
+        Employees user = this.getUserById(userId);
+        if (user.getTasks().stream().noneMatch(t -> t.getId().equals(task.getId()))) {
+            user.addTaskToTaskList(task);
+            this.employeeRepository.save(user);
+        }
+    }
+
+    private Employees getUserById(Long userId) {
+        return this.employeeRepository.findById(userId).orElseThrow();
+    }
+
+    public void removeTaskFromUser(Long taskId, Long userId) {
+        Employees user = getUserById(userId);
+        user.removeTaskFromTaskList(taskId);
+        this.employeeRepository.save(user);
+    }
+
+    public void deleteAllTasks(Long userId) {
+        Employees user = getUserById(userId);
+        user.deleteAllTaskFromTaskList();
+        this.employeeRepository.save(user);
     }
 }

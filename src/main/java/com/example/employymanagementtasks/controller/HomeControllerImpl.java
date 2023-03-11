@@ -44,7 +44,29 @@ public class HomeControllerImpl implements HomeController{
 
     @Override
     public String addTaskToTaskList(Long id) {
-        return null;
+        if(!loggedUser.isLogged()) {
+            return "redirect:/users/login";
+        }
+        this.homeService.addTask(id, this.loggedUser.getId());
+        return "redirect:/home";
+    }
+
+    @Override
+    public String removeTaskFromTaskList(Long id) {
+        if(!loggedUser.isLogged()) {
+            return "redirect:/users/login";
+        }
+        this.homeService.removeTask(id, this.loggedUser.getId());
+        return "redirect:/home";
+    }
+
+    @Override
+    public String deleteAllFromTaskList() {
+        if(!loggedUser.isLogged()) {
+            return "redirect:/users/login";
+        }
+        this.homeService.deleteAll(this.loggedUser.getId());
+        return "redirect:/home";
     }
 
 

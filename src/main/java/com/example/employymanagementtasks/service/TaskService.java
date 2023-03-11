@@ -62,4 +62,8 @@ public class TaskService {
                 .map(this::mapTaskDTO)
                 .collect(Collectors.toSet());
     }
+
+    public Tasks findTaskById(Long id) {
+        return this.taskRepository.findById(id).orElseThrow();
+    }
 }

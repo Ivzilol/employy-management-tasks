@@ -3,6 +3,7 @@ package com.example.employymanagementtasks.service;
 import com.example.employymanagementtasks.model.dto.TaskByPriorityDTO;
 import com.example.employymanagementtasks.model.dto.TaskDTO;
 import com.example.employymanagementtasks.model.entity.TaskPriority;
+import com.example.employymanagementtasks.model.entity.Tasks;
 import com.example.employymanagementtasks.model.entity.TypesOfTasks;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +17,12 @@ public class HomeService {
 
     private final TaskPriorityService taskPriorityService;
 
-    public HomeService(TaskService taskService, TaskPriorityService taskPriorityService) {
+    private final UserService userService;
+
+    public HomeService(TaskService taskService, TaskPriorityService taskPriorityService, UserService userService) {
         this.taskService = taskService;
         this.taskPriorityService = taskPriorityService;
+        this.userService = userService;
     }
 
     public TaskByPriorityDTO getTasks() {
@@ -36,4 +40,16 @@ public class HomeService {
         return this.taskService.findTaskByPriority(typesOfTasks);
     }
 
+    public void addTask(Long taskId, Long userId) {
+        Tasks task = this.taskService.findTaskById(taskId);
+        this.userService.addTaskToUser(userId, task);
+    }
+
+    public void removeTask(Long taskId, Long userId) {
+        this.userService.removeTaskFromUser(taskId, userId);
+    }
+
+    public void deleteAll(Long userId) {
+        this.userService.deleteAllTasks(userId);
+    }
 }
