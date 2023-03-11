@@ -3,7 +3,7 @@
 
 Tools and technologies used:Cancel changes
 
-Java 11
+Java 17
 
 Spring Boot
 
@@ -13,4 +13,4 @@ MySQL
 
 Thymeleaf
 
-Java version 17
+
