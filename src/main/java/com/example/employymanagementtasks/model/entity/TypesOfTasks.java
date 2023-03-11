@@ -21,10 +21,6 @@ public class TypesOfTasks extends BaseEntity {
     public TypesOfTasks() {
     }
 
-    public TaskPriority getTaskPriority() {
-        return taskPriority;
-    }
-
     public void setTaskPriority(TaskPriority taskPriority) {
         this.taskPriority = taskPriority;
     }
@@ -35,10 +31,6 @@ public class TypesOfTasks extends BaseEntity {
 
     public void setTasks(Set<Tasks> tasks) {
         this.tasks = tasks;
-    }
-
-    public String getDescription() {
-        return Description;
     }
 
     public void setDescription(String description) {

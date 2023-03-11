@@ -1,6 +1,5 @@
 package com.example.employymanagementtasks.model.dto;
 
-import com.example.employymanagementtasks.model.entity.Status;
 import com.example.employymanagementtasks.model.entity.TaskPriority;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -47,10 +46,6 @@ public class AddTaskDTO {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -63,24 +58,12 @@ public class AddTaskDTO {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
     public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
     public TaskPriority getTaskPriority() {
         return taskPriority;
-    }
-
-    public void setTaskPriority(TaskPriority taskPriority) {
-        this.taskPriority = taskPriority;
     }
 
 }

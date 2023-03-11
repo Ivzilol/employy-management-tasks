@@ -50,10 +50,6 @@ public class Employees extends BaseEntity{
         this.username = username;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
-
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
@@ -66,24 +62,12 @@ public class Employees extends BaseEntity{
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
-    }
-
-    public BigDecimal getSalary() {
-        return salary;
     }
 
     public void setSalary(BigDecimal salary) {

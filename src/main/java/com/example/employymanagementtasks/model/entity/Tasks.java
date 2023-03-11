@@ -63,16 +63,8 @@ public class Tasks extends BaseEntity {
         this.endDate = endDate;
     }
 
-    public TypesOfTasks getTypesOfTasks() {
-        return typesOfTasks;
-    }
-
     public void setTypesOfTasks(TypesOfTasks typesOfTasks) {
         this.typesOfTasks = typesOfTasks;
-    }
-
-    public Set<Employees> getEmployees() {
-        return employees;
     }
 
     public void setEmployees(Set<Employees> employees) {
